@@ -9,6 +9,8 @@ namespace FinalG5.Data
     {
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
+
+        public DbSet<Exercise> Exercises { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Hobby>().HasData(
