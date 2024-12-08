@@ -14,6 +14,8 @@ namespace FinalG5.Data
         public DbSet<BoardGames> BoardGames { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TeamMember>().ToTable("TeamMembers");
+
             modelBuilder.Entity<Hobby>().HasData(
                 new Hobby { Id = 1, Name = "Cycling", Description = "Riding a bike for leisure or exercise", DifficultyLevel = 3, AverageTimeSpentPerWeek = 5.5, IsOutdoorActivity = true },
                 new Hobby { Id = 2, Name = "Painting", Description = "Creating art using paint", DifficultyLevel = 4, AverageTimeSpentPerWeek = 3.0, IsOutdoorActivity = false },
@@ -23,7 +25,10 @@ namespace FinalG5.Data
                new BoardGames { Id = 1, Name = "Uno", Description = "Playing till no more cards in hand", DifficultyLevel = 1, AveragePlayTime = 0.15},
                new BoardGames { Id = 2, Name = "Monopoly", Description = "Buy all the properties you can and bankrupt your friends", DifficultyLevel = 3, AveragePlayTime = 3.5},
                new BoardGames { Id = 3, Name = "Dungeons and Dragons", Description = "Role playing board game to play with friends", DifficultyLevel = 5, AveragePlayTime = 8760.0}
-           );
+            );
+            modelBuilder.Entity<TeamMember>().HasData(
+                new TeamMember { Id = 1, FullName = "Heather Gibson", Birthdate = DateTime.Parse("6/14/1975"), CollegeProgram = "IT", YearInProgram = "1" }
+            );
         }
 
 

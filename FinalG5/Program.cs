@@ -15,6 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 var app = builder.Build();
 
+ApplyMigration();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -29,3 +31,18 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+void ApplyMigration()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var _Db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        if (_Db != null)
+        {
+            if (_Db.Database.GetPendingMigrations().Any())
+            {
+                _Db.Database.Migrate();
+            }
+        }
+    }
+}
