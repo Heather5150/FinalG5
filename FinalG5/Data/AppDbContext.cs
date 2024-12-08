@@ -7,6 +7,8 @@ namespace FinalG5.Data
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
         public DbSet<BoardGames> BoardGames { get; set; }
