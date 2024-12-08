@@ -15,7 +15,7 @@ namespace FinalG5.Controllers
         {
             _context = context;
         }
-
+        
        
         [HttpGet]
         public IActionResult GetBoardGames(int? id)
