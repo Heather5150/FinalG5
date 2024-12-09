@@ -133,6 +133,64 @@ namespace FinalG5.Migrations
                             Name = "Hiking"
                         });
                 });
+            modelBuilder.Entity("FinalG5.Models.Exercises", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                b.Property<double>("Repetitions")
+                    .HasColumnType("int");
+
+                b.Property<string>("Description")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+
+                b.Property<int>("Sets")
+                    .HasColumnType("int");
+
+                b.Property<bool>("RequiresEquipment")
+                    .HasColumnType("bit");
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
+
+                b.HasKey("Id");
+
+                b.ToTable("Hobbies");
+
+                b.HasData(
+                    new
+                    {
+                        Id = 1,
+                        Repetitions = 10,
+                        Description = "Moving your body with legs",
+                        Sets = 3,
+                        RequiresEquipment = false,
+                        Name = "Squats"
+                    },
+                    new
+                    {
+                        Id = 2,
+                        Repetitions = 12,
+                        Description = "Moving your body with arms",
+                        Sets = 2,
+                        RequiresEquipment = false,
+                        Name = "Squats"
+                    },
+                    new
+                    {
+                        Id = 3,
+                        Repetitions = 8,
+                        Description = "Moving your arms with dumbbells",
+                        Sets = 5,
+                        RequiresEquipment = true,
+                        Name = "Bicep Curls"
+                    });
+            });
 
             modelBuilder.Entity("FinalG5.Models.TeamMember", b =>
                 {
@@ -169,8 +227,24 @@ namespace FinalG5.Migrations
                             CollegeProgram = "IT",
                             FullName = "Heather Gibson",
                             YearInProgram = "1"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            Birthdate = new DateTime(1975, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "IT",
+                            FullName = "Heather Gibson",
+                            YearInProgram = "1"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            Birthdate = new DateTime(1975, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "IT",
+                            FullName = "Heather Gibson",
+                            YearInProgram = "1"
                         });
-                });
+                    });
 #pragma warning restore 612, 618
         }
     }
