@@ -31,6 +31,7 @@ namespace FinalG5.Data
                 new Exercise { Id = 1, Name = "Pushups", Description = "Using your arms to move your body", Repetitions = 10, Sets = 3, RequiresEquipment = false },
                 new Exercise { Id = 2, Name = "Squats", Description = "Squatting with legs", Repetitions = 8, Sets = 2, RequiresEquipment = false },
                 new Exercise { Id = 3, Name = "BicepCurl", Description = "Curling dumbbells for biceps", Repetitions = 12, Sets = 4, RequiresEquipment = true }
+            );
 
             modelBuilder.Entity<BoardGames>().HasData(
                new BoardGames { Id = 1, Name = "Uno", Description = "Playing till no more cards in hand", DifficultyLevel = 1, AveragePlayTime = 0.15},
@@ -38,8 +39,9 @@ namespace FinalG5.Data
                new BoardGames { Id = 3, Name = "Dungeons and Dragons", Description = "Role playing board game to play with friends", DifficultyLevel = 5, AveragePlayTime = 8760.0}
             );
             modelBuilder.Entity<TeamMember>().HasData(
-                new TeamMember { Id = 1, FullName = "Heather Gibson", Birthdate = DateTime.Parse("6/14/1975"), CollegeProgram = "IT", YearInProgram = "1" }
+                new TeamMember { Id = 1, FullName = "Heather Gibson", Birthdate = DateTime.Parse("6/14/1975"), CollegeProgram = "IT", YearInProgram = "1" },
 
+                new TeamMember { Id= 3, FullName = "Aidan Place", Birthdate = DateTime.Parse("05/08/2004"), CollegeProgram = "IT", YearInProgram="3" }
             );
         }
 
