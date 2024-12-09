@@ -40,7 +40,7 @@ namespace FinalG5.Data
             );
             modelBuilder.Entity<TeamMember>().HasData(
                 new TeamMember { Id = 1, FullName = "Heather Gibson", Birthdate = DateTime.Parse("6/14/1975"), CollegeProgram = "IT", YearInProgram = "1" },
-
+                new TeamMember { Id= 2, FullName = "Cage Wellman", Birthdate = DateTime.Parse("6/11/2002"), CollegeProgram = "IT", YearInProgram = "3" },
                 new TeamMember { Id= 3, FullName = "Aidan Place", Birthdate = DateTime.Parse("05/08/2004"), CollegeProgram = "IT", YearInProgram="3" }
             );
         }
