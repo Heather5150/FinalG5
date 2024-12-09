@@ -30,6 +30,23 @@ namespace FinalG5.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Exercises",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Repetitions = table.Column<int>(type: "int", nullable: false),
+                    Sets = table.Column<double>(type: "int", nullable: false)
+                    RequiresEquipment = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exercises", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Hobbies",
                 columns: table => new
                 {
@@ -64,12 +81,22 @@ namespace FinalG5.Migrations
 
             migrationBuilder.InsertData(
                 table: "BoardGames",
+                columns: new[] { "Id", "Name", "Description", "Repetitions", "Sets", "RequiresEquipment" },
+                values: new object[,]
+                {
+                    { 1, 8, "Moving body with hands", 5, "Pushups", true },
+                    { 2, 10, "Moving body with legs", 2, "Squats", false },
+                    { 3, 12, "moving arms with dumbbells", 4, "Dungeons and Dragons", true }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Exercises",
                 columns: new[] { "Id", "AveragePlayTime", "Description", "DifficultyLevel", "Name" },
                 values: new object[,]
                 {
-                    { 1, 0.14999999999999999, "Playing till no more cards in hand", 1, "Uno" },
-                    { 2, 3.5, "Buy all the properties you can and bankrupt your friends", 3, "Monopoly" },
-                    { 3, 8760.0, "Role playing board game to play with friends", 5, "Dungeons and Dragons" }
+                                { 1, 0.14999999999999999, "Playing till no more cards in hand", 1, "Uno" },
+                                { 2, 3.5, "Buy all the properties you can and bankrupt your friends", 3, "Monopoly" },
+                                { 3, 8760.0, "Role playing board game to play with friends", 5, "Dungeons and Dragons" }
                 });
 
             migrationBuilder.InsertData(
@@ -85,7 +112,13 @@ namespace FinalG5.Migrations
             migrationBuilder.InsertData(
                 table: "TeamMembers",
                 columns: new[] { "Id", "Birthdate", "CollegeProgram", "FullName", "YearInProgram" },
-                values: new object[] { 1, new DateTime(1975, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "IT", "Heather Gibson", "1" });
+                values: new object[,]
+                { { 1, new DateTime(1975, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "IT", "Heather Gibson", "1" },
+                  { 2, new DateTime(2002, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "IT", "Cage Wellman", "3" },
+                  { 3, new DateTime(2004, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "IT", "Aidan Place", "3" }
+                }
+                );
+
         }
 
         /// <inheritdoc />
@@ -93,6 +126,9 @@ namespace FinalG5.Migrations
         {
             migrationBuilder.DropTable(
                 name: "BoardGames");
+
+            migrationBuilder.DropTable(
+                name: "Exercises");
 
             migrationBuilder.DropTable(
                 name: "Hobbies");
